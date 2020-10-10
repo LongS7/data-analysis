@@ -1,0 +1,141 @@
+*{
+    padding: 0px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+}
+.outer{
+	background-color:rgba(240, 226, 226, 0.473);
+}
+
+
+/* .nav-item .nav-link:hover{
+    border-bottom: 1px solid rgb(100, 102, 12);
+} */
+a.text-white:hover{
+    color: rgb(228, 93, 93) !important;
+}
+.card{
+    /* box-shadow: 0px 5px 5px #80808059; */
+    border-radius: 0.5cm;
+    
+}
+
+.card a{
+ 
+    padding: 7px;
+}
+.list-menu a{
+    padding-left: 15px;
+}
+.card a:hover{
+    background-color: rgba(212, 11, 48, 0.849);
+    border-radius: 0.5cm;
+    
+    border: 1px solid black;
+}
+.card a:hover .text-content{
+  color: white;
+}
+.phone-support-gop-y
+{
+    border-radius: 15px;
+}
+
+.btn-timsim{
+    padding: 2px;
+}
+.caa-danhmuc{
+	color: black !important;
+}
+.home-search{
+  box-shadow: 0px 5px 5px #2b0303;
+}
+.fs-main{
+  font-size: 25px;
+}
+.fs-100{
+  width: 60;
+}
+.fs-150{
+  font-size: 15px;
+}
+.fs-200{
+  font-size: 20px;  
+}
+div.scrollmenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inlinse-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
+#mark-sim
+{
+  display: inline-block;width: 20px;
+}
+.tab-menu-danhmuc{
+  color: red !important;
+}
+.pagination{
+  height: 33px;
+  color: black;
+  border-radius: 2cm;
+}
+
+.sp1{
+  color: white;
+}
+.sp2{
+  color: black;
+}
+.simsodep-color:hover{
+  color: rgb(180, 12, 12);
+}
+
+.menu-footer:hover{
+  color: black;
+}
+.viettel-color{
+  color: rgb(23, 107, 163);
+  font-weight: bold;
+}
+.mobi-color{
+  color: #0000bf;
+}
+.mobi-color-1{
+  color: red;
+}
+.vina-color{
+  color: #0000ff;
+}
+.vnmb-color{
+  color: #ff7f00;
+}
+.gmobile-color{
+  color: black;
+}
+.itelecom-color{
+  color: red;
+}
+.sim{
+  color: red;
+}
+.hover-danger:hover{
+  color: rgb(206, 6, 6) !important;
+  font-weight: bold;
+}
+.space-footer{
+  line-height: 0.8em;
+}

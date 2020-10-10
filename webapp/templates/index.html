@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="text-center" style="width: 100%;">
+      <form class="form-horizontal" action="/" method="POST">
+         <div class="input-group mb-3">
+            <input type="text" name="text" class="form-control" placeholder="Search">
+            <div class="input-group-append">
+               <button class="btn btn-success" type="submit">Search</button>
+            </div>
+         </div>
+      </form>
+
+      {% if text|length > 0 %}
+         <h3>Result for "{{ text|safe }}"</h1>
+      {% else %}
+      {% endif %}
+   </div>
+
+{% endblock %}
+      

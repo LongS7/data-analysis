@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="static/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/fa-receipt.js"></script>
+   <title>Document</title>
+</head>
+<body>
+    <div>
+
+        <div id="header-menu" class="bg-dark bg-md-dark " style="background-color: black !important ;">
+        <div class="container px-0 px-md-3">
+            <div class="navbar navbar-expand-lg navbar-dark p-0 d-flex justify-content-between">
+                <a class="navbar-brand font-weight-bold d-md-none mx-1" href="" title="">
+                    <img src="" alt="" width="30" class="align-middle rounded-lg p-1 bg-dark" /> <span
+                        class="brand-name"></span>
+                </a>
+                <button class="navbar-toggler text-white align-middle" type="button" id="jMobileMenuBtn"
+                    data-toggle="collapse" data-target="#mobile-navbar" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse d-none d-md-flex" id="main-menu">
+                    <ul class="navbar-nav w-100 d-flex justify-content-between">
+                        <li class="nav-item"><a class="text-white nav-link font-weight-bold" href=""><i
+                                    class="fas fa-home"></i> Trang chủ</a></li>
+                        <li class="nav-item"><a class="text-white nav-link font-weight-bold" rel="nofollow"
+                                href="/gioi-thieu"><i class="fa fa-tags"></i> Giới thiệu </a></li>
+                                <li class="nav-item"><a class="text-white nav-link font-weight-bold" rel="nofollow"
+                                href="/san-pham"><i class="fa fa-archive"></i> Sản phẩm </a></li>
+                        <li class="nav-item"><a class="text-white nav-link font-weight-bold" rel="nofollow"
+                                href="/lien-he"><i class="fas fa-id-card"></i> Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <div class="container-fluid">
+            <h2 class="text-secondary text-center mt-3"> Data Visualization </h2><br>
+            <div class="row">
+                <div class="col-sm-3 col-12">
+                    <div class="list-group">
+                        <a href="/linechart" class="list-group-item list-group-item-action">Line chart</a>
+                        <a href="/barchart" class="list-group-item list-group-item-action">Bar chart</a>
+                        <a href="/piechart" class="list-group-item list-group-item-action">Pie chart</a>
+                        <a href="/granttchart" class="list-group-item list-group-item-action">Grantt chart</a>
+                        <a href="/boxchart" class="list-group-item list-group-item-action">Box chart</a>
+                        <a href="/scatterchart" class="list-group-item list-group-item-action">Scatter chart</a><br>
+                    </div>
+                </div>
+                <div class="col-sm-9 col-12">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
