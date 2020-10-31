@@ -5,7 +5,7 @@ import numpy as np
 def createTable():
     # Chia 4 khoảng < 1.7, < 1.8, < 1.9, > 1.9
 
-    df = pd.read_excel("WORLDCUP.xlsx")
+    df = pd.read_excel("static/WORLDCUP.xlsx")
 
     height = df["Weight"]
 

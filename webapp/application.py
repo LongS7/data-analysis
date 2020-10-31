@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 import mpld3, numpy as np
 from matplotlib import pyplot as plt
 from mpld3 import plugins
-import weight
 import pyrebase
 
 application = Flask(__name__)
@@ -23,8 +22,10 @@ application = Flask(__name__)
 
 # storage = app.storage()
 
-# storage.child("WORLDCUP.xlsx").download(path="", filename="WORLDCUP.xlsx")
+# storage.child("WORLDCUP.xlsx").download(path="", filename="static/WORLDCUP.xlsx")
 
+
+import weight
 
 @application.route("/", methods=["POST", "GET"])
 def index():
