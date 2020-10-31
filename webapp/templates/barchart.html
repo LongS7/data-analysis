@@ -2,6 +2,31 @@
 
 {% block content %}
 
-{{ chart|safe }}
+{% if labels|length > 0 %}
+    <h4 class="text-center">Bảng tần số tần suất cân nặng của các cầu thủ</h4>
+    <br/>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                {% for label in labels %}
+                <th>{{ label }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(data | length) %}
+                <tr>
+                    <td>{{ index[i] }}</td>
+                    {% for i in data[i] %}
+                        <td>{{ i }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+<img src="static/weight_bar.png" alt="Weight barchart" width="80%"/>
 
 {% endblock %}

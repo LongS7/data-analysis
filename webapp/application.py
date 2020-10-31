@@ -2,8 +2,28 @@ from flask import Flask, render_template, request
 import mpld3, numpy as np
 from matplotlib import pyplot as plt
 from mpld3 import plugins
+import weight
+import pyrebase
 
 application = Flask(__name__)
+
+
+# firebaseConfig = {
+#     "apiKey": "AIzaSyCSG9ymA4J2DKE8rjKIHDWgDNqBZTCxYBA",
+#     "authDomain": "data-analysis-68b5a.firebaseapp.com",
+#     "databaseURL": "https://data-analysis-68b5a.firebaseio.com",
+#     "projectId": "data-analysis-68b5a",
+#     "storageBucket": "data-analysis-68b5a.appspot.com",
+#     "messagingSenderId": "459401032843",
+#     "appId": "1:459401032843:web:ceebc4f914699af25f508e",
+#     "measurementId": "G-RQM08K7B6C"
+#   }
+
+# app = pyrebase.initialize_app(config=firebaseConfig)
+
+# storage = app.storage()
+
+# storage.child("WORLDCUP.xlsx").download(path="", filename="WORLDCUP.xlsx")
 
 
 @application.route("/", methods=["POST", "GET"])
@@ -32,22 +52,25 @@ def linechart():
 def barchart():
     fig, ax = plt.subplots()
 
-    divisions = ["Div A", "Div B", "Div C", "Div D", "Div E"]
-    division_average_marks = np.random.randint(5, 25, size=5)
-    boys_average_marks = np.random.randint(5, 25, size=5)
+    divisions, data = weight.createTable()
 
     index = np.arange(len(divisions))
     width = 0.3
 
     ax.set_title("Bar chart")
-    ax.bar(index, division_average_marks, width, color="green", label="Division Mark")
-    ax.bar(index + width, boys_average_marks, width, color="blue", label="Boy Mark")
-    ax.set_xticks(index + width/2, divisions)
+    ax.bar(index, data["Tần số"], width, color="green", label="Division Mark")
     ax.legend(loc="best")
 
-    chart_html = mpld3.fig_to_html(fig)
+    listData = []
 
-    return render_template("barchart.html", chart=chart_html)
+    columns = data.columns
+
+    for item in columns:
+        listData.append(list(data[item]))
+
+    plt.savefig("static/weight_bar.png")
+    
+    return render_template("barchart.html", labels=data.columns, index=divisions, data=listData)
 
 @application.route("/piechart")
 def piechart():
