@@ -2,10 +2,10 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import numpy as np
 
-def createTable():
+def getData():
     # Chia 4 khoảng < 1.7, < 1.8, < 1.9, > 1.9
 
-    df = pd.read_excel("static/WORLDCUP.xlsx")
+    df = pd.read_excel("https://firebasestorage.googleapis.com/v0/b/data-analysis-68b5a.appspot.com/o/WORLDCUP.xlsx?alt=media&token=64d3d72e-97a7-4fde-93f3-091d53788eeb")
 
     height = df["Weight"]
 
@@ -31,5 +31,3 @@ def createTable():
     indexs = result.index.tolist()
 
     return indexs, result
-
-createTable()

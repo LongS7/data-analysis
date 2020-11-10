@@ -14,11 +14,11 @@ year = [int(item[6:]) for item in new_f["Birth Date"]]
 new_f["Birth Date"] = year
 new_f["Age"] = age
 
-# print(new_f)
+print(new_f)
 
-# new_f.to_excel("WORLDCUP.xlsx", index=False)
+new_f.to_excel("WORLDCUP.xlsx", index=False)
 
-age = sorted(age)
+# age = sorted(age)
 
-plt.plot(age)
-plt.show()
+# plt.plot(age)
+# plt.show()

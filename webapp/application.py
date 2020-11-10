@@ -2,28 +2,8 @@ from flask import Flask, render_template, request
 import mpld3, numpy as np
 from matplotlib import pyplot as plt
 from mpld3 import plugins
-import pyrebase
 
 application = Flask(__name__)
-
-
-# firebaseConfig = {
-#     "apiKey": "AIzaSyCSG9ymA4J2DKE8rjKIHDWgDNqBZTCxYBA",
-#     "authDomain": "data-analysis-68b5a.firebaseapp.com",
-#     "databaseURL": "https://data-analysis-68b5a.firebaseio.com",
-#     "projectId": "data-analysis-68b5a",
-#     "storageBucket": "data-analysis-68b5a.appspot.com",
-#     "messagingSenderId": "459401032843",
-#     "appId": "1:459401032843:web:ceebc4f914699af25f508e",
-#     "measurementId": "G-RQM08K7B6C"
-#   }
-
-# app = pyrebase.initialize_app(config=firebaseConfig)
-
-# storage = app.storage()
-
-# storage.child("WORLDCUP.xlsx").download(path="", filename="static/WORLDCUP.xlsx")
-
 
 import weight
 
@@ -53,7 +33,7 @@ def linechart():
 def barchart():
     fig, ax = plt.subplots()
 
-    divisions, data = weight.createTable()
+    divisions, data = weight.getData()
 
     index = np.arange(len(divisions))
     width = 0.3
@@ -69,9 +49,9 @@ def barchart():
     for item in columns:
         listData.append(list(data[item]))
 
-    plt.savefig("static/weight_bar.png")
+    chart_html = mpld3.fig_to_html(fig)
     
-    return render_template("barchart.html", labels=data.columns, index=divisions, data=listData)
+    return render_template("barchart.html",chart=chart_html, labels=data.columns, index=divisions, data=listData)
 
 @application.route("/piechart")
 def piechart():

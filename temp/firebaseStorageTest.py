@@ -15,4 +15,8 @@ app = pyrebase.initialize_app(config=firebaseConfig)
 
 storage = app.storage()
 
+#Up lên
+# storage.put("WORLDCUP.xlsx")
+
+#Tải xuống
 storage.child("WORLDCUP.xlsx").download(path="", filename="file.xlsx")

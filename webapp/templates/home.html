@@ -7,14 +7,13 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   <title>Document</title>
+   <title>Home</title>
 </head>
 <body>
     <div>
-
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <!-- Brand -->
-            <a class="navbar-brand" href="#">DataVS</a>
+            <a class="navbar-brand" href="#">Nhóm X</a>
           
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -36,23 +35,32 @@
               </ul>
             </div>
         </nav>
-        
         <div class="container-fluid">
-            <h2 class="text-secondary text-center"> Data Visualization </h2><br>
-            <div class="row">
-                <div class="col-sm-3 col-12">
-                    <div class="list-group">
-                        <a href="/linechart" class="list-group-item list-group-item-action">Line chart</a>
-                        <a href="/barchart" class="list-group-item list-group-item-action">Bar chart</a>
-                        <a href="/piechart" class="list-group-item list-group-item-action">Pie chart</a>
-                        <a href="/granttchart" class="list-group-item list-group-item-action">Grantt chart</a>
-                        <a href="/boxchart" class="list-group-item list-group-item-action">Box chart</a>
-                        <a href="/scatterchart" class="list-group-item list-group-item-action">Scatter chart</a><br>
-                    </div>
-                </div>
-                <div class="col-sm-9 col-12">
-                    {% block content %}{% endblock %}
-                </div>
+            <h2 class="text-secondary text-center"> Trang chủ </h2><br>
+            <div class="text-center">
+                <a href="/index.html" style="font-size: 24px; margin: 0 0 100px 0;">Biểu đồ</a><a href="/data-analisis" style="font-size: 24px; margin: 0 0 100px 0;">Phân tích dữ liệu</a>
+            </div>
+            <div>
+                <h4>Giới thiệu đề tài</h4>
+                <br>
+                <h4>Thông tin nhóm</h4>
+                <table class="table table-hover">
+                    <thead>
+                        <th>
+                            <td>Số thứ tự</td>
+                            <td>Họ tên thành viên</td>
+                            <td>Mã số sinh viên</td>
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>Điểu Long</td>
+                            <td>18025441</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
