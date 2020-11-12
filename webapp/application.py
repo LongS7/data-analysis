@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 import mpld3, numpy as np
 from matplotlib import pyplot as plt
 from mpld3 import plugins
+import pandas as pd
+import pos
 
 application = Flask(__name__)
 
@@ -15,74 +17,73 @@ def index():
 
     return render_template("index.html", text=text)
 
-@application.route("/linechart")
-def linechart():
-    data = 15 * np.random.random_sample(10)
+@application.route("/hieu-du-lieu")
+def hieu_du_lieu():
+    return render_template("hieu-du-lieu.html")
 
-    fig, ax = plt.subplots()
-    ax.plot(data)
-    ax.set_title("Line chart")
-    ax.set_xlabel("x value")
-    ax.set_ylabel("y value")
+@application.route("/tai-du-lieu")
+def tai_du_lieu():    
+    return render_template("tai-du-lieu.html")
 
-    chart_html = mpld3.fig_to_html(fig)
+@application.route("/thong-ke-du-lieu-thieu")
+def thong_ke_du_lieu_thieu():
 
-    return render_template("linechart.html", chart=chart_html)
+    conclude = "Không có cột dữ liệu nào bị thiếu!"
 
-@application.route("/barchart")
-def barchart():
-    fig, ax = plt.subplots()
+    return render_template("thong-ke-du-lieu-thieu.html", conclude=conclude)
 
-    divisions, data = weight.getData()
+@application.route("/xu-ly-du-lieu")
+def xu_ly_du_lieu():
+    df = pd.read_excel("https://firebasestorage.googleapis.com/v0/b/data-analysis-68b5a.appspot.com/o/WORLDCUP.xlsx?alt=media&token=64d3d72e-97a7-4fde-93f3-091d53788eeb")
 
-    index = np.arange(len(divisions))
-    width = 0.3
+    tableTitle = "10 dòng đầu của dữ liệu sau khi được xử lý"
 
-    ax.set_title("Bar chart")
-    ax.bar(index, data["Tần số"], width, color="green", label="Division Mark")
-    ax.legend(loc="best")
+    indexs, columns, data = toTableFormat(df.head(10))
 
+    return render_template("xu-ly-du-lieu.html", tableTitle=tableTitle, indexs=indexs, columns=columns, data=data)
+
+@application.route("/trinh-bay-du-lieu")
+def trinh_bay_du_lieu():
+    listData = []
+    listIndexs = []
+    listColumns = []
+    listCharts = []
+    listTitle = []
+
+    # Cột Pos
+    df = pos.getFTable()
+    indexs, columns, data = toTableFormat(df)
+
+    listTitle.append("Bảng tần số, tần suất, tần suất tích lũy")
+    listIndexs.append(indexs)
+    listColumns.append(columns)
+    listData.append(data)
+    listCharts.append(pos.plot())
+
+    return render_template("trinh-bay-du-lieu.html", listTitle=listTitle, listIndexs=listIndexs, listColumns=listColumns, listData=listData, listCharts=listCharts)
+
+@application.route("/mo-ta-du-lieu")
+def mo_ta_du_lieu():
+    
+
+    return render_template("mo-ta-du-lieu.html")
+
+@application.route("/khao-sat-dang-phan-phoi")
+def khao_sat_dang_phan_phoi():
+    
+    return render_template("khao-sat-dang-phan-phoi.html")
+
+
+def toTableFormat(df):
     listData = []
 
-    columns = data.columns
+    indexs = df.index.tolist()
+    columns = df.columns
 
-    for item in columns:
-        listData.append(list(data[item]))
-
-    chart_html = mpld3.fig_to_html(fig)
+    for item in indexs:
+        listData.append(list(df.loc[item]))
+    return indexs, columns, listData
     
-    return render_template("barchart.html",chart=chart_html, labels=data.columns, index=divisions, data=listData)
-
-@application.route("/piechart")
-def piechart():
-    data = 15 * np.random.random_sample(5)
-    names = ["Product A", "Product B", "Product C", "Product D", "Product E"]
-
-    explode = np.zeros(len(data))
-
-    for i in range(len(data)):
-        if data[i] == max(data):
-            explode[i] = 0.1
-
-    fig, ax = plt.subplots()
-    ax.pie(data,explode=explode, labels=names)
-    ax.set_title("Pie chart")
-
-    chart_html = mpld3.fig_to_html(fig)
-
-    return render_template("piechart.html", chart=chart_html)
-
-@application.route("/scatterchart")
-def scatterchart():
-    data = 15 * np.random.random_sample(15)
-    labels = [i for i in range(len(data))]
-    fig, ax = plt.subplots()
-    ax.scatter(x=labels, y=data, color="green")
-    ax.set_title("Scatter chart")
-
-    chart_html = mpld3.fig_to_html(fig)
-
-    return render_template("scatterchart.html", chart=chart_html)
 
 if __name__ == "__main__":
     application.run(debug=True)

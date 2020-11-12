@@ -3,19 +3,32 @@
 {% block content %}
 
     <div class="text-center" style="width: 100%;">
-      <form class="form-horizontal" action="/" method="POST">
-         <div class="input-group mb-3">
-            <input type="text" name="text" class="form-control" placeholder="Search">
-            <div class="input-group-append">
-               <button class="btn btn-success" type="submit">Search</button>
-            </div>
+         <h4>Giới thiệu đề tài</h4>
+         <div style="text-align: justify; font-size: 1.1em;">
+            <p>Từ xưa, bóng đá luôn là một trong những môn thể thao phổ biến nhất, được yêu thích nhất và được coi là môn thể thao vua.</p>
+            <p>Giải vô địch bóng đá thế giới(WorldCup) là giải đấu bóng đá có quy mô lớn nhất do FIFA tổ chức 4 năm 1 lần.Worldcup là sự kiện thể thao là giải bóng đá lớn nhất hành tinh,là giải đấu thể thao siêu hấp dẫn nhất, thu hút sự quan tâm đông đảo trên thế giới,quy tụ các đội bóng mạnh nhất của từng khu vực trên thế giới. </p>
+            <p>Trong những năm gần đây bóng đá việt nam đang phát triển mạnh mẽ giữ vị trí hạng 94(tháng 10-2020), có vị trí cao nhất trong khu vực Đông Nam Á. Với sự phát triển hiện tại, việc Việt Nam tham lần đầu tiên tham dự vào giải đấu danh giá nhất của bóng đá thế giới là mong muốn của rất nhiều hâm mộ Việt Nam.</p>
+            <p>Để tìm hiểu 1 đội bóng cần những gì để có thể góp mặt ở worldcup thì nhóm chúng em đã chọn phân tích dữ liệu các đội bóng tham dự worldcup năm 2018.Các thông số về thể lực các cầu thủ trong đội bóng từ cần có những chính sách để cải thiện ,phát triển thể lực cho cầu thủ nước nhà,các vị trí trong đội hình, độ tuổi để từ đó rút ra được kinh nghiệm, chiến thuật để phát triển nền bóng đá nước nhà.</p>
          </div>
-      </form>
-
-      {% if text|length > 0 %}
-         <h3>Result for "{{ text|safe }}"</h1>
-      {% else %}
-      {% endif %}
+         <br>
+         <h4>Thông tin nhóm</h4>
+         <table class="table table-hover">
+            <thead>
+               <th>
+                     <td>Số thứ tự</td>
+                     <td>Họ tên thành viên</td>
+                     <td>Mã số sinh viên</td>
+               </th>
+            </thead>
+            <tbody>
+               <tr>
+                     <td></td>
+                     <td>1</td>
+                     <td>Điểu Long</td>
+                     <td>18025441</td>
+               </tr>
+            </tbody>
+         </table>
    </div>
 
 {% endblock %}

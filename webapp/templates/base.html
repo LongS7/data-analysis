@@ -7,14 +7,14 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   <title>Document</title>
+   <title>{% block title1 %}{% endblock %}</title>
 </head>
 <body>
     <div>
 
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <!-- Brand -->
-            <a class="navbar-brand" href="#">DataVS</a>
+            <a class="navbar-brand" href="#">Nhóm</a>
           
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -25,32 +25,28 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="/home">Trang chủ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Biểu đồ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Phân tích dữ liệu</a>
+                  <a class="nav-link" href="/">Trang chủ</a>
                 </li>
               </ul>
             </div>
         </nav>
-        
+        <br>
         <div class="container-fluid">
-            <h2 class="text-secondary text-center"> Data Visualization </h2><br>
             <div class="row">
                 <div class="col-sm-3 col-12">
                     <div class="list-group">
-                        <a href="/linechart" class="list-group-item list-group-item-action">Line chart</a>
-                        <a href="/barchart" class="list-group-item list-group-item-action">Bar chart</a>
-                        <a href="/piechart" class="list-group-item list-group-item-action">Pie chart</a>
-                        <a href="/granttchart" class="list-group-item list-group-item-action">Grantt chart</a>
-                        <a href="/boxchart" class="list-group-item list-group-item-action">Box chart</a>
-                        <a href="/scatterchart" class="list-group-item list-group-item-action">Scatter chart</a><br>
+                        <a href="/hieu-du-lieu" class="list-group-item list-group-item-action">1.	Hiểu dữ liệu</a>
+                        <a href="/tai-du-lieu" class="list-group-item list-group-item-action">2.	Tải dữ liệu</a>
+                        <a href="/thong-ke-du-lieu-thieu" class="list-group-item list-group-item-action">3.	Thống kê dữ liệu thiếu</a>
+                        <a href="/xu-ly-du-lieu" class="list-group-item list-group-item-action">4.	Xử lý dữ liệu</a>
+                        <a href="/trinh-bay-du-lieu" class="list-group-item list-group-item-action">5.	Trình bày dữ liệu</a>
+                        <a href="/mo-ta-du-lieu" class="list-group-item list-group-item-action">6.	Mô tả dữ liệu</a>
+                        <a href="/khao-sat-dang-phan-phoi" class="list-group-item list-group-item-action">7. Khảo sát dạng phân phối</a><br>
                     </div>
                 </div>
                 <div class="col-sm-9 col-12">
+                    <h2 class="text-secondary text-center"> {% block title2 %}{% endblock %} </h2><br>
+
                     {% block content %}{% endblock %}
                 </div>
             </div>

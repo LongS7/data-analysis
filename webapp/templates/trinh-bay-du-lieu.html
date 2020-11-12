@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title1 %}Trình bày dữ liệu{% endblock %}
+{% block title2 %}Trình bày dữ liệu{% endblock %}
+{% block content %}
+
+<h3>Dữ liệu định tính</h3>
+<ul>
+    <li>
+        <h4>Pos</h4>
+        <div>
+            {% for p in range(listData | length) %}
+            
+                <h5 class="text-center">{{ listTitle[p] }}</h5>
+                {% if listColumns[p]|length > 0 %}
+                    <br/>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                {% for column in listColumns[p] %}
+                                <th>{{ column }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in range(listData[p] | length) %}
+                                <tr>
+                                    <td>{{ listIndexs[p][i] }}</td>
+                                    {% for j in range(listData[p][i] | length) %}
+                                        <td>{{ listData[p][i][j] }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+                {{ listCharts[p][0]|safe }}
+                <br>
+                {{ listCharts[p][1]|safe }}
+                <br>
+                {{ listCharts[p][2]|safe }}
+                <br>
+            {% endfor %}
+        </div>
+    </li>
+</ul>
+<h3>Dữ liệu định lượng</h3>
+<ul>
+    <li>
+        <h5>Height</h5>
+    </li>
+    <li>
+        <h5>Weight</h5>
+    </li>
+    <li>
+        <h5>Age</h5>
+    </li>
+</ul>
+
+{% endblock %}

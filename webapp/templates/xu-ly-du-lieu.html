@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title1 %}Xử lý dữ liệu{% endblock %}
+{% block title2 %}Xử lý dữ liệu{% endblock %}
+{% block content %}
+
+<p>Xoá các dữ liệu không phù hợp với yêu cầu: </p>
+<ul>
+    <li>Xóa cột <b>#</b></li>
+    <li>Xóa cột <b>FIFA Popular Name</b></li>
+    <li>Xoá <b>Birth Date</b> - thay thế bằng thêm cột <b>Age</b></li>
+    <li>Xoá cột <b>Shirt Name</b></li>
+</ul>
+<br>
+<h4 class="text-center">{{ tableTitle }}</h4>
+
+{% if columns|length > 0 %}
+    <br/>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                {% for column in columns %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(data | length) %}
+                <tr>
+                    <td>{{ indexs[i] }}</td>
+                    {% for j in range(data[i] | length) %}
+                        <td>{{ data[i][j] }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+{% endblock %}

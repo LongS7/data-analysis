@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title1 %}Hiểu dữ liệu{% endblock %}
+{% block title2 %}Hiểu dữ liệu{% endblock %}
+{% block content %}
+
+<div style="text-align: justify; font-size: 1.1em;">
+    <p>Qua dữ liệu ta thu thập được trên data.word, dữ liệu cho ta biết được thông tin về các đội bóng tham gia WorldCup 2018. Trong đó, ta biết được </p>
+    <ul>
+        <li>Tên của từng đội bóng tham gia WorldCup 2018.</li>
+        <li>Trong 1 đội bóng, qua dữ liệu ta biết được thông tin của các cầu thủ như là: vị trí trong đội bóng, câu lạc bộ mà họ tham gia, biết được chi tiết về chiều cao, cân nặng của từng cầu thủ và số tuổi qua dữ liệu ngày tháng năm sinh.</li>
+    </ul>
+    <br>
+    <h4 class="text-center">Bảng biến số</h4>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Tên biến số </td>
+                <td>Kiểu dữ liệu </td>
+                <td>Ý nghĩa của biến số </td>
+                <td>Dạng dữ liệu </td>
+                <td>Thang đo </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Team</td>
+                <td>String</td>
+                <td>Tên đội bóng</td>
+                <td>Định tính</td>
+                <td>Định danh</td>
+            </tr>
+            <tr>
+                <td>#</td>
+                <td>int</td>
+                <td>Số áo cầu thủ</td>
+                <td>Định tính</td>
+                <td>Định danh</td>
+            </tr><tr>
+                <td>FIFA Popular Name</td>
+                <td>String</td>
+                <td>Tên cầu thủ</td>
+                <td>Định tính</td>
+                <td>Định danh</td>
+            </tr><tr>
+                <td>Shirt Name</td>
+                <td>String</td>
+                <td>Tên ghi trên áo</td>
+                <td>Định tính</td>
+                <td>Định danh</td>
+            </tr><tr>
+                <td>Birth Date</td>
+                <td>String</td>
+                <td>Ngày tháng năm sinh của cầu thủ</td>
+                <td>Định tính</td>
+                <td>Định danh</td>
+            </tr><tr>
+                <td>Pos</td>
+                <td>String</td>
+                <td>Vị trí của cầu thủ trong đội bóng</td>
+                <td>Định tính</td>
+                <td>Định danh</td>
+            </tr><tr>
+                <td>Club</td>
+                <td>String</td>
+                <td>Tên câu lạc bộ mà cầu thủ tham gia</td>
+                <td>Định tính</td>
+                <td>Định danh</td>
+            </tr><tr>
+                <td>Height</td>
+                <td>int</td>
+                <td>Chiều cao của cầu thủ</td>
+                <td>Định lượng</td>
+                <td>Tỉ lệ</td>
+            </tr><tr>
+                <td>Weight</td>
+                <td>int</td>
+                <td>Cân nặng của cầu thủ</td>
+                <td>Định lượng</td>
+                <td>Tỉ lệ</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
