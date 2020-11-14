@@ -4,6 +4,163 @@
 {% block title2 %}Mô tả dữ liệu{% endblock %}
 {% block content %}
 
-
+<div>
+    <ol style="font-size: 1.3em;">
+        <li>
+            <p>Height</p>
+            <p>Các giá trị độ tập trung</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        {% for column in hc1 %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(h1 | length) %}
+                        <tr>
+                            {% for j in range(h1[i] | length) %}
+                                <td>{{ h1[i][j] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>Các giá trị độ phân tán</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        {% for column in hc2 %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(h2 | length) %}
+                        <tr>
+                            {% for j in range(h2[i] | length) %}
+                                <td>{{ h2[i][j] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>Biểu đồ box-plot</p>
+            {{ charth | safe }}
+            <p>Nhận xét</p>
+            <p>Từ biểu đồ cho ta thấy được:
+                25% cầu thủ có chiều cao dưới 1.78m
+                50% cầu thủ có chiều cao dưới 1.83m
+                75% cầu thủ có chiều cao dưới 1.87m
+                Cầu thủ thấp nhất có chiều cao 1.65m
+                Cầu thủ cao nhất có chiều cao 2.01m (outlier)
+                </p>
+        </li>
+        <li>
+            <p>Weight</p>
+            <p>Các giá trị độ tập trung</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        {% for column in wc1 %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(w1 | length) %}
+                        <tr>
+                            {% for j in range(w1[i] | length) %}
+                                <td>{{ w1[i][j] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>Các giá trị độ phân tán</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        {% for column in wc2 %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(w2 | length) %}
+                        <tr>
+                            {% for j in range(w2[i] | length) %}
+                                <td>{{ w2[i][j] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>Biểu đồ box-plot</p>
+            {{ chartw | safe }}
+            <p>Nhận xét</p>
+            <p>Từ biểu đồ cho ta thấy được:
+                25% cầu thủ có cân nặng dưới 72kg
+                50% cầu thủ có cân nặng dưới 77kg
+                75% cầu thủ có cân nặng dưới 82kg
+                Cầu thủ thấp nhất có cân nặng 59kg
+                Cầu thủ cao nhất có cân nặng 99kg
+                Có 2 cầu thủ có cân nặng ngoài vùng tập trung
+                </p>
+        </li>
+        <li>
+            <p>Age</p>
+            <p>Các giá trị độ tập trung</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        {% for column in ac1 %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(a1 | length) %}
+                        <tr>
+                            {% for j in range(a1[i] | length) %}
+                                <td>{{ a1[i][j] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>Các giá trị độ phân tán</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        {% for column in ac2 %}
+                        <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(a2 | length) %}
+                        <tr>
+                            {% for j in range(a2[i] | length) %}
+                                <td>{{ a2[i][j] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>Biểu đồ box-plot</p>
+            {{ charta | safe }}
+            <p>Nhận xét</p>
+            <p>Từ biểu đồ cho ta thấy được:
+                25% cầu thủ có độ tuổi dưới 25
+                50% cầu thủ có độ tuổi dưới 28
+                75% cầu thủ có độ tuổi dưới 31
+                Cầu thủ thấp nhất có độ tuổi 19
+                Cầu thủ cao nhất có độ tuổi 45(outlier)
+                </p>
+        </li>
+    </ol>
+</div>
 
 {% endblock %}

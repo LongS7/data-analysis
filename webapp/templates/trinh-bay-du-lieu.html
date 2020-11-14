@@ -8,53 +8,184 @@
 <ul>
     <li>
         <h4>Pos</h4>
-        <div>
-            {% for p in range(listData | length) %}
-            
-                <h5 class="text-center">{{ listTitle[p] }}</h5>
-                {% if listColumns[p]|length > 0 %}
-                    <br/>
-                    <table class="table table-hover">
-                        <thead>
+        <div>            
+            <h5 class="text-center">{{ listTitle[0] }}</h5>
+            {% if listColumns[0]|length > 0 %}
+                <br/>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            {% for column in listColumns[0] %}
+                            <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(listData[0] | length) %}
                             <tr>
-                                <th></th>
-                                {% for column in listColumns[p] %}
-                                <th>{{ column }}</th>
+                                <td>{{ listIndexs[0][i] }}</td>
+                                {% for j in range(listData[0][i] | length) %}
+                                    <td>{{ listData[0][i][j] }}</td>
                                 {% endfor %}
                             </tr>
-                        </thead>
-                        <tbody>
-                            {% for i in range(listData[p] | length) %}
-                                <tr>
-                                    <td>{{ listIndexs[p][i] }}</td>
-                                    {% for j in range(listData[p][i] | length) %}
-                                        <td>{{ listData[p][i][j] }}</td>
-                                    {% endfor %}
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                {% endif %}
-                {{ listCharts[p][0]|safe }}
-                <br>
-                {{ listCharts[p][1]|safe }}
-                <br>
-                {{ listCharts[p][2]|safe }}
-                <br>
-            {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+            {{ listCharts[0][0]|safe }}
+            <br>
+            {{ listCharts[0][1]|safe }}
+            <br>
+            {{ listCharts[0][2]|safe }}
+            <br>
         </div>
+        <h5>Nhận xét</h5>
+        <ul>
+            <li>
+                <p>Dữ liệu gồm 736 cầu thủ được chia thành 4 vị trí cơ bản</p>
+                <ul>
+                    <li>Thủ môn gồm 96 cầu thủ chiếm 13.04%</li>
+                    <li>Hậu vệ gồm 248 chiếm 33.70%</li>
+                    <li>Tiền vệ gồm 233 chiếm 31.66%</li>
+                    <li>Tiền đạo 159 chiếm 21.60%</li>
+                </ul>
+            </li>
+            <li>
+                <p>Vị trí thủ môn chiếm tỉ lệ ít nhất, hậu vệ chiếm nhiều nhất. 
+                    Từ đó cho chúng ta thấy vị trí thủ môn cần ít người nhất vì trong một trận đấu 
+                    một đội chỉ cần một thủ môn, vị trí hậu vệ chiếm nhiều nhất cho thấy xu thế chiến 
+                    thuật bóng đá ưu tiên phòng ngự hơn là tấn công</p>
+            </li>
+        </ul>
+        
     </li>
 </ul>
 <h3>Dữ liệu định lượng</h3>
 <ul>
     <li>
         <h5>Height</h5>
+        <div>            
+            <h5 class="text-center">{{ listTitle[1] }}</h5>
+            {% if listColumns[1]|length > 0 %}
+                <br/>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            {% for column in listColumns[1] %}
+                            <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(listData[1] | length) %}
+                            <tr>
+                                <td>{{ listIndexs[1][i] }}</td>
+                                {% for j in range(listData[1][i] | length) %}
+                                    <td>{{ listData[1][i][j] }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+            {{ listCharts[1][0]|safe }}
+            <br>
+            {{ listCharts[1][1]|safe }}
+            <br>
+            {{ listCharts[1][2]|safe }}
+            <br>
+        </div>
+        <h5>Nhận xét</h5>
+        <ul>
+            <li>
+                <p>Chiều cao cầu thủ được chia thành 4 nhóm</p>
+                <ul>
+                    <li>Nhóm 1 : <= 1.7m chiếm 5.7 %</li>
+                    <li>Nhóm 2 : > 1.7m – 1.8m chiếm 33.2%</li>
+                    <li>Nhóm 3 : > 1.8m – 1.9m chiếm 49.7%</li>
+                    <li>Nhóm 4 : > 1.9m</li>
+                </ul>
+            </li>
+            <li>
+                <p>Qua dữ liệu cho chúng ta thấy chiều cao phổ biến trong bóng đá trong một kì World Cup là 1.8m – 1.9m. Vì vậy, nếu muốn tham gia 1 kì World Cup, việc đầu tiên chúng ta cần làm là phát triển thể chất, thể lực cho các cầu thủ</p>
+            </li>
+        </ul>
     </li>
     <li>
         <h5>Weight</h5>
+        <div>            
+            <h5 class="text-center">{{ listTitle[2] }}</h5>
+            {% if listColumns[2]|length > 0 %}
+                <br/>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            {% for column in listColumns[2] %}
+                            <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(listData[2] | length) %}
+                            <tr>
+                                <td>{{ listIndexs[2][i] }}</td>
+                                {% for j in range(listData[2][i] | length) %}
+                                    <td>{{ listData[2][i][j] }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+            {{ listCharts[2][0]|safe }}
+            <br>
+            {{ listCharts[2][1]|safe }}
+            <br>
+            {{ listCharts[2][2]|safe }}
+            <br>
+        </div>
+        <h5>Nhận xét</h5>
+        
     </li>
     <li>
         <h5>Age</h5>
+        <div>            
+            <h5 class="text-center">{{ listTitle[3] }}</h5>
+            {% if listColumns[3]|length > 0 %}
+                <br/>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            {% for column in listColumns[3] %}
+                            <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range(listData[3] | length) %}
+                            <tr>
+                                <td>{{ listIndexs[3][i] }}</td>
+                                {% for j in range(listData[3][i] | length) %}
+                                    <td>{{ listData[3][i][j] }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+            {{ listCharts[3][0]|safe }}
+            <br>
+            {{ listCharts[3][1]|safe }}
+            <br>
+            {{ listCharts[3][2]|safe }}
+            <br>
+        </div>
+        <h5>Nhận xét</h5>
+        
     </li>
 </ul>
 

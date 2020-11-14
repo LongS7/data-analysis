@@ -1,5 +1,6 @@
 import pandas as pd
 from matplotlib import pyplot as plt
+import numpy as numpy
 import numpy as np
 import base64
 from io import BytesIO
@@ -9,12 +10,12 @@ import scipy
 df = pd.read_excel("https://firebasestorage.googleapis.com/v0/b/data-analysis-68b5a.appspot.com/o/WORLDCUP.xlsx?alt=media&token=64d3d72e-97a7-4fde-93f3-091d53788eeb")
 
 def getFTable():
-    weight = df["Weight"]
+    height = df["Height"]
 
-    n1 = [i / 100 for i in weight if i <= 70]
-    n2 = [i / 100 for i in weight if i > 70 and i <= 80]
-    n3 = [i / 100 for i in weight if i > 80 and i <= 90]
-    n4 = [i / 100 for i in weight if i > 90]
+    n1 = [i / 100 for i in height if i <= 170]
+    n2 = [i / 100 for i in height if i > 170 and i <= 180]
+    n3 = [i / 100 for i in height if i > 180 and i <= 190]
+    n4 = [i / 100 for i in height if i > 190]
 
     ts = pd.Series([len(n1), len(n2), len(n3), len(n4)])
 
@@ -43,19 +44,18 @@ def plot():
     fig = plt.figure()
     width = 0.5
     plt.bar(["Nhóm 1", "Nhóm 2", "Nhóm 3", "Nhóm 4"], data["Tần số"], width=width)
-    plt.title("Tần số các nhóm cân nặng của cầu thủ trong World Cup")
-    plt.xlabel("Nhóm cân nặng")
+    plt.title("Tần số các nhóm chiều cao của cầu thủ trong World Cup")
+    plt.xlabel("Nhóm chiều cao")
     plt.ylabel("Số lượng")
 
     charts.append(convert_fig_to_html(fig))
     
-
     # Tần suất
     fig = plt.figure()
     plt.pie(data["Tần suất"],labels=["Nhóm 1", "Nhóm 2", "Nhóm 3", "Nhóm 4"], autopct=my_autopct,shadow =True,startangle=100)
     plt.axis('equal')
-    plt.legend(title="Danh sách vị trí",loc='best',bbox_to_anchor=(1, 0.5, 0.5, 0.5))
-    plt.title("Tần suất cân nặng của cầu thủ World Cup")
+    plt.title("Tần suất của nhóm chiều cao của cầu thủ World Cup")
+    plt.legend()
 
     charts.append(convert_fig_to_html(fig))
 
@@ -63,19 +63,24 @@ def plot():
     fig = plt.figure()
     plt.xlabel("Vị trí")
     plt.ylabel("Tần suất tích lũy")
-    plt.title("Biểu đồ thể hiện tần suất tích lũy nhóm cân nặng của cầu thủ")
+    plt.title("Biểu đồ thể hiện tần suất tích lũy nhóm chiều cao của cầu thủ")
     plt.plot(data.index.tolist(), data["Tần suất tích lũy"])
+    plt.xticks(data.index.tolist(), rotation=60)
 
     charts.append(convert_fig_to_html(fig))
 
     return charts
 
+def my_autopct(pct):
+    return ('%.2f%s' % (pct, '%') ) if pct > 10 else ''
+
+
 def doTapTrung():
     s = ""
-    for item in df["Weight"].mode().tolist():
+    for item in df["Height"].mode().tolist():
         s += str(item) + " "
 
-    x = [df["Weight"].min(), df["Weight"].max(), round(df["Weight"].mean(), 2), s, df["Weight"].median(), df["Weight"].quantile(0.25), df["Weight"].quantile(0.5), df["Weight"].quantile(0.75)]
+    x = [df["Height"].min(), df["Height"].max(), round(df["Height"].mean(), 2), s, df["Height"].median(), df["Height"].quantile(0.25), df["Height"].quantile(0.5), df["Height"].quantile(0.75)]
 
     
     rs = pd.DataFrame(np.reshape(x, (1, 8)), columns=["Min", "Max", "Mean", "Mode", "Median", "Q1", "Q2", "Q3"])
@@ -84,34 +89,32 @@ def doTapTrung():
 
 def doPhanTan():
     s = ""
-    for item in df["Weight"].mode().tolist():
+    for item in df["Height"].mode().tolist():
         s += str(item) + " "
 
-    x = [df["Weight"].max() - df["Weight"].min(), df["Weight"].quantile(0.75) - df["Weight"].quantile(0.25), round(df["Weight"].var(), 2), round(df["Weight"].std(), 2), round(df["Weight"].std() / df["Weight"].mean(), 2)]
+    x = [df["Height"].max() - df["Height"].min(), df["Height"].quantile(0.75) - df["Height"].quantile(0.25), round(df["Height"].var(), 2), round(df["Height"].std(), 2), round(df["Height"].std() / df["Height"].mean(), 2)]
 
     
     rs = pd.DataFrame(np.reshape(x, (1, 5)), columns=["|Max - Min|", "IQR", "Variance", "Standard deviation", "CV"])
 
     return rs
-    
-def my_autopct(pct):
-    return ('%.2f%s' % (pct, '%') ) if pct > 10 else ''
 
 def boxplot():
     fig = plt.figure()
-    plt.boxplot(df["Weight"])
+    plt.boxplot(df["Height"])
+    plt.title("Biểu đồ Box-plot")
 
     return convert_fig_to_html(fig)
 
 def histogram():
     fig = plt.figure()
 
-    plt.hist(df["Weight"], density=True)
-    plt.title('Biểu đồ Histogram của cân nặng', fontsize=15)
+    plt.hist(df["Height"], density=True)
+    plt.title('Biểu đồ Histogram của chiều cao', fontsize=15)
 
-    mu = df["Weight"].mean()
-    std = df["Weight"].std()
-    x = np.sort(df["Weight"])
+    mu = df["Height"].mean()
+    std = df["Height"].std()
+    x = np.sort(df["Height"])
     p = norm.pdf(x, mu, std)
     plt.plot(x, p, 'k', linewidth=1, color="r")
 
@@ -119,10 +122,10 @@ def histogram():
 
 def qq():
     fig = plt.figure()
-    
-    scipy.stats.probplot(df['Weight'], dist="norm", plot=plt)
+
+    scipy.stats.probplot(df['Height'], dist="norm", plot=plt)
     plt.xlabel('Normal')
-    plt.ylabel('Weight')
-    plt.title('QQ-Plot Weight')
+    plt.ylabel('Height')
+    plt.title('QQ-Plot Height')
     
     return convert_fig_to_html(fig)

@@ -4,6 +4,113 @@
 {% block title2 %}Khảo sát dạng phân phối{% endblock %}
 {% block content %}
 
+<div style="font-size: 1.2em;">
+    <ol>
+        <li>
+            <p>Dạng lệch</p>
+            <ul>
+                <li>
+                    <p>Height</p>
+                    <p>Do mode > median > mean -> Hình dạng phân phối sẽ lệch trái</p>
+                </li>
 
+                <li>
+                    <p>Weight</p>
+                    <p>Do median < mean -> Hình dạng phân phối sẽ lệch trái</p>
+                </li>
+                <li>
+                    <p>Age</p>
+                    <p>Do median > mean -> Hình dạng phân phối sẽ lệch trái</p>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p>Biểu đồ histogram</p>
+            <ul>
+                <li><p>Height</p>
+                    {{ hisH | safe }}
+                    <p>Nhận xét</p>
+                    <ul>
+                        <li><p>Chiều cao của các cầu thủ phân bố chủ yếu trong khoảng từ 170-193 cm</p></li>
+                        <li><p>Chiều cao nhiều cầu thủ sở hữu nhất là 183-187 cm.</p></li>
+                        <li><p>Các cầu thủ sở hữu chiều cao từ 180 cm có khác nhiều và thường là những cầu thủ có khả năng không chiến tốt.</p></li>
+                        <li><p>Các cầu thủ từ 170 cm trở xuống có khá ít và thường là những cầu thủ nhỏ con, có tốc độ tốt.</p></li>
+                        <li><p>Các thủ môn thường có chiều cao từ 190 cm trở lên.</p></li>
+                        <li><p>Giá trị trung bình (mean) = 182.407609, trung vị (median) = 183.0 và có độ xiên (skewness) = -0.121824. Trong phân phối này, trị số trung bình và trung vị của chiều cao gần bằng nhau  và độ xiên dao động từ -1 đến +1. Vì vậy có thê là phân phối chuẩn. </p></li>
+                    </ul>
+                </li>
+                <li><p>Weight</p>
+                    {{ hisW | safe }}
+                    <p>Nhận xét</p>
+                    <ul>
+                        <li><p>Cân nặng của các cầu thủ phân bố chủ yếu trong khoảng từ 64>90kg</p></li>
+                        <li><p>Cân nặng nhiều cầu thủ sở hữu nhất là 77-79kg.</p></li>
+                        <li><p>Các cầu thủ thi đấu trong World Cup có cân nặng khá so với cân nặng trung bình của các cầu thủ trên thế giới.</p></li>
+                        <li><p>Các cầu thủ có cân nặng dưới 65 kg có khá ít, thường là những cầu thủ nhỏ con, có tốc độ tốt, hay chơi ở những vị trí tiền đạo, tiền vệ.</p></li>
+                        <li><p>Các cầu thủ có cân nặng từ 90 kg trở lên có khá ít, là những cầu thủ cao lớn, thường đá ở những vị trí trung vệ và tiền vệ.</p></li>
+                        <li><p>Giá trị trung bình (mean) = 77.188859, trung vị (median) = 77.0 và có độ xiên (skewness) = 0.195174. Trong phân phối này, trị số trung bình và trung vị của chiều cao gần bằng nhau  và độ xiên dao động từ -1 đến +1. Vì vậy có thể là phân phối chuẩn.</p></li>
+                    </ul>
+                </li>
+                <li><p>Age</p>
+                    {{ hisA | safe }}
+                    <p>Nhận xét</p>
+                    <ul>
+                        <li><p>Độ tuổi của các cầu thủ phân bố chủ yếu trong khoảng từ 22->34 tuổi</p></li>
+                        <li><p>Độ tuổi có nhiều cầu thủ nhất là 26-28 tuổi cho thấy lực lượng chủ yếu của các đội bóng là các cầu thủ không quá trẻ tập trung vào khoảng gần 26 tuổi, các cầu thủ có sức khỏe dồi dào, tốc độ bứt phá nhưng vẫn có đủ kinh nghiệm chơi bóng nên mang đến lối chơi bùng nổ trong các trận bóng.</p></li>
+                        <li><p>Ngoài ra có 1 vài cầu thủ có số tuổi khá cao nhưng vẫn thi đấu chuyên nghiệp đây có thể là cầu thủ chủ chốt giúp đội bóng đó duy trì nhịp độ trận đấu, đóng góp chiến thuật.</p></li>
+                        <li><p>Giá trị trung bình (mean) = 28.0, trung vị (median) = 27.889946 và có độ xiên (skewness) = 0.259615. Trong phân phối này, trị số trung bình và trung vị của chiều cao gần bằng nhau  và độ xiên dao động từ -1 đến +1. Vì vậy có thể là phân phối chuẩn.</p></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p>Đánh giá</p>
+            <p>Độ nhọn và độ xiên của chiều cao, cân nặng và tuổi</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Kurtosis (độ nhọn)</th>
+                        <th>Skew (độ xiên)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Height</td>	<td>-0.444331</td>	<td>-0.121824</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>	<td>-0.006510</td>	<td>0.195174</td>
+                    </tr>
+                    <tr>
+                        <td>Age</td>	<td>-0.142236</td>	<td>0.259615</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Qua độ xiên của 3 giá trị lần lượt là chiều cao, cân nặng và tuổi. Ta thấy độ xiên nằm trong khoảng từ -1 đến 1. Nó sẽ có thể lệch trái (height), lệch phải (weight), lệch trái (age)</p>
+            <p>Qua độ nhọn, là dạng phân phối platykurtic </p>
+        </li>
+        <li>
+            <p>So sánh đánh giá với phân phối chuẩn</p>
+            <ul>
+                <li>
+                    <p>Height</p>
+                    {{ qq1 | safe }}
+                </li>
+                <li>
+                    <p>Weight</p>
+                    {{ qq2 | safe }}
+                </li>
+                <li>
+                    <p>Age</p>
+                    {{ qq3 | safe }}
+                    <p><b>Kết luận: </b>{{ ketLuan }}</p>
+                </li>
+                <li>
+                    <p>Đánh giá tương quan giữa chiều cao và cân nặng là {{ cc_cn }}. Kết luận: {{ kl_cc_cn }}</p>
+                </li>
+            </ul>
+        </li>
+    </ol>
+</div>
 
 {% endblock %}
