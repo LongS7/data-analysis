@@ -110,7 +110,7 @@ def histogram():
     fig = plt.figure()
 
     plt.hist(df["Height"], density=True)
-    plt.title('Biểu đồ Histogram của chiều cao', fontsize=15)
+    plt.title('Biểu đồ Histogram của chiều cao')
 
     mu = df["Height"].mean()
     std = df["Height"].std()

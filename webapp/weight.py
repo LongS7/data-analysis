@@ -107,7 +107,7 @@ def histogram():
     fig = plt.figure()
 
     plt.hist(df["Weight"], density=True)
-    plt.title('Biểu đồ Histogram của cân nặng', fontsize=15)
+    plt.title('Biểu đồ Histogram của cân nặng')
 
     mu = df["Weight"].mean()
     std = df["Weight"].std()

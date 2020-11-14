@@ -108,7 +108,7 @@ def histogram():
     fig = plt.figure()
 
     plt.hist(df["Age"], density=True)
-    plt.title('Biểu đồ Histogram của độ tuổi', fontsize=15)
+    plt.title('Biểu đồ Histogram của độ tuổi')
 
     mu = df["Age"].mean()
     std = df["Age"].std()
