@@ -54,14 +54,14 @@ def plot():
     fig = plt.figure()
     plt.pie(data["Tần suất"],labels=["Nhóm 1", "Nhóm 2", "Nhóm 3", "Nhóm 4"], autopct=my_autopct,shadow =True,startangle=100)
     plt.axis('equal')
-    plt.legend(title="Danh sách vị trí",loc='best',bbox_to_anchor=(1, 0.5, 0.5, 0.5))
+    plt.legend(title="Danh sách nhóm cân nặng",loc='best',bbox_to_anchor=(1, 0.5, 0.5, 0.5))
     plt.title("Tần suất cân nặng của cầu thủ World Cup")
 
     charts.append(convert_fig_to_html(fig))
 
     # Tần suất tích lũy
     fig = plt.figure()
-    plt.xlabel("Vị trí")
+    plt.xlabel("Nhóm cân nặng")
     plt.ylabel("Tần suất tích lũy")
     plt.title("Biểu đồ thể hiện tần suất tích lũy nhóm cân nặng của cầu thủ")
     plt.plot(data.index.tolist(), data["Tần suất tích lũy"])

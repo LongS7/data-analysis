@@ -61,7 +61,7 @@ def plot():
 
     # Tần suất tích lũy
     fig = plt.figure()
-    plt.xlabel("Vị trí")
+    plt.xlabel("Nhóm chiều cao")
     plt.ylabel("Tần suất tích lũy")
     plt.title("Biểu đồ thể hiện tần suất tích lũy nhóm chiều cao của cầu thủ")
     plt.plot(data.index.tolist(), data["Tần suất tích lũy"])
